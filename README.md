@@ -1,2 +1,2 @@
 # Time-Travel
-Time travel with computera
+Time travel with computers
