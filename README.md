@@ -1,2 +1,2 @@
-# Time-Travel
-Time travel with computers
+# Project Stargate 
+Mathematical Time travel with computers
