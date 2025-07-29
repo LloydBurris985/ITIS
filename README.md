@@ -1,4 +1,4 @@
-# Project Stargate 
+# Project Chronos
 Mathematical Time Travel with computers
 What This Project Is All AboutThe Burris Numerical System (BNS) project is a computational framework for managing and exploring data in a way that mimics navigating a timeline, like a digital time machine for information. Here's the core of it in simple terms:BNS Encoding: BNS is a clever way to encode data (like messages or files) into pairs of numbers called V and R. It uses different "bases" (like base-10 for numbers 0–9, base-32 for letters and numbers, or chart-based for binary 0s and 1s) to pack data efficiently. A "flipping" mechanism keeps the numbers within bounds, saving storage space.
 TemporalEmail: This is your main program for sending and retrieving messages in a shared digital "universe" (a database indexed by time, T). It uses secure methods like SHA-256 checksums, RSA signatures, and quantum codes to verify messages, ensuring they’re legit and causality is preserved (no paradoxes!). It’s versatile, letting you retrieve messages using a list of checksums, a range of checksums, or by decoding specific BNS chart positions to match a file size.
