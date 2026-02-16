@@ -1,5 +1,0 @@
-eye = OdinsEye(start_mask=50000)
-coord = eye.encode(b"Odin lives!")
-print("Coord:", coord)
-recovered = eye.decode(coord)
-print("Recovered:", recovered)  # b'Odin lives!'
