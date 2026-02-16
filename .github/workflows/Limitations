@@ -1,4 +1,0 @@
-v0.1 notes:
-- Backward decode is robust but may need tuning on extremely long paths (>10 million steps)
-- No built-in verification (add your own SHA-256 check if desired)
-- Single-file only; chunk large files for now
