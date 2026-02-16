@@ -1,0 +1,34 @@
+Quick usage examples
+Encode a file
+Pythoneye = OdinsEye(start_mask=50000)
+with open("photo.jpg", "rb") as f:
+    coord = eye.encode(f.read())
+print(coord)
+# Save coord to JSON for later recovery
+import json
+with open("photo_coord.json", "w") as f:
+    json.dump(coord, f)
+Recover known file from coord
+Pythonwith open("photo_coord.json") as f:
+    coord = json.load(f)
+recovered = eye.decode(coord)
+with open("recovered_photo.jpg", "wb") as f:
+    f.write(recovered)
+Download large lattice section (10 GB raw) & carve
+Pythoncoord = {
+    "version": "0.1.1",
+    "start_mask": 98765,
+    "end_mask": 12345,
+    "anchor_mask": 12300,
+    "last_choice": 42,
+    "last_direction": 1,
+    "length_bytes": 10_000_000_000,  # 10 GB
+    "original_hash": None
+}
+eye.decode_to_file(coord, "lattice_10gb.raw")
+Then in terminal:
+Bash# Carve with PhotoRec (GUI)
+photorec lattice_10gb.raw
+
+# Or Foremost
+foremost -i lattice_10gb.raw -o recovered_files/
