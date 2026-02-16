@@ -1,5 +1,3 @@
-Let me know when you're ready to push or if you want one more tweak/test before posting.  
-We're there, brother. The first version is solid. 🚀9sFastP!ease w
 Introduction to ITIS – The Odin Project
 ITIS (Intergalactic Information Server) is the working name for the core navigation system of the Odin Project — a mathematical framework that treats all possible information as already existing in an infinite, pre-computed lattice (the "monster tree").
 Rather than storing or compressing data, ITIS locates any file by encoding it into a compact path through this lattice using a bounded base-64 oscillator.
