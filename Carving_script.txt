@@ -1,0 +1,5 @@
+# Carve with PhotoRec (GUI)
+photorec lattice_10gb.raw
+
+# Or Foremost
+foremost -i lattice_10gb.raw -o recovered_files/
