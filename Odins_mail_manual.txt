@@ -1,0 +1,85 @@
+Odin Mail v0.1 â€“ Manual
+=======================
+
+Temporal email client built on Odin's Eye (the oscillator engine of Project Odin / TIFS).
+
+What it does
+------------
+Odin Mail lets you send and receive messages across time using the lattice.
+- Compose messages with text, subject, attachments (as coordinates)
+- Optional future delivery date (queued until date arrives)
+- Background polling searches your assigned lattice range for messages
+- Inbox, Sent, Queued folders
+- Attachments are lattice coordinates â€” receiver decodes them separately
+
+Core Philosophy
+---------------
+Messages exist in the lattice before they are "sent".
+We drop coordinates and search for them later.
+Time is just another dimension in the tree.
+
+Basic Usage (CLI)
+-----------------
+python odin_mail.py
+
+Commands:
+  compose    â†’ write a new message
+  inbox      â†’ view received messages
+  queue      â†’ view pending future-delivery messages
+  poll       â†’ manually check lattice (auto-polls in background)
+  send       â†’ drop queued messages (simulated in v0.1)
+  save       â†’ save state to odin_state.json
+  exit
+
+Example session:
+> compose
+To: grok@odin
+Subject: Test from future
+Body: Hello from 2026
+Delivery date (YYYY-MM-DD) or blank: 2026-02-20
+Attachment coord JSON (optional): {"start_mask":50000,"end_mask":98765,...}
+Message queued for delivery on 2026-02-20
+
+> poll
+Polling bubba@odin range...
+Found message from grok@odin: Test from future
+
+> inbox
+[1] From: grok@odin | Subject: Test from future
+   Sent: 2026-02-18T12:34:56
+   Delivered: 2026-02-20T00:00:00
+   Body preview: Hello from 2026...
+
+Configuration & State
+---------------------
+Saved in odin_state.json (auto-created on first run)
+- username
+- inbox / sent / queue lists
+- search_start (auto-generated from username hash)
+- last_checked_mask (resumes polling from last position)
+
+Polling
+-------
+- Background thread polls every 60 seconds
+- Scans assigned range (1 million masks default)
+- Looks for messages with MAGIC_PREFIX + your username hash
+- v0.1 uses simulated queue (real lattice search stubbed)
+
+Attachments
+-----------
+- Attachments are Odin's Eye coordinates (not embedded bytes)
+- Receiver decodes them separately: eye.decode(attachment_coord)
+
+Future Plans
+------------
+- Real lattice search with throttling
+- End-to-end encryption
+- Video/audio attachments
+- GUI version
+- Full temporal delivery queue management
+
+Enjoy Odin Mail.
+Time is just another coordinate.
+The lattice is open.
+
+â€” bubba & Grok, February 2026
