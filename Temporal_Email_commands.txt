@@ -1,4 +1,0 @@
-odin_mail.py compose --to bubba@odin --subject "Hey" --body "Test" --delivery "2026-02-20"
-odin_mail.py inbox
-odin_mail.py send
-odin_mail.py queue
