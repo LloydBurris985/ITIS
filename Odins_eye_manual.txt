@@ -1,0 +1,80 @@
+Odin's Eye v0.1.1 â€“ Manual
+=========================
+
+The core oscillator engine of the Odin Project / Temporal Intergalactic File Server (TIFS).
+
+What it does
+------------
+Odin's Eye is a reversible base-64 numerical oscillator that:
+- Encodes any bytes (files) into a compact 5-field coordinate
+- Decodes the exact original bytes from that coordinate
+- Keeps all masks (positions) forever in the range 10000â€“99999 using reset bounce
+- Supports streaming decode for very large files (10 GB+)
+
+Core Philosophy
+---------------
+All information already exists in the lattice.
+We do not store or compress â€” we navigate to it.
+The coordinate is the "address" in the infinite tree.
+
+Coordinate Format (saved JSON)
+------------------------------
+{
+  "version": "0.1.1",
+  "start_mask": 50000,      // original root / starting position
+  "end_mask": 98765,        // final position after encoding
+  "anchor_mask": 98517,     // position one step before end_mask (reset anchor)
+  "last_choice": 42,        // last 6-bit choice made (0â€“63)
+  "last_direction": 1,      // direction at end of encoding (1 or -1)
+  "length_bytes": 1024,     // exact original file size
+  "original_hash": "a1b2c3..."  // SHA-256 hex digest for verification
+}
+
+Basic Usage (Python)
+--------------------
+from odins_eye import OdinsEye
+
+eye = OdinsEye(start_mask=50000)
+
+# Encode a file
+with open("photo.jpg", "rb") as f:
+    coord = eye.encode(f.read())
+
+print(coord)  # save this dict!
+
+# Decode / recover
+recovered = eye.decode(coord)
+with open("recovered_photo.jpg", "wb") as f:
+    f.write(recovered)
+
+# Large section download (10 GB raw lattice chunk)
+coord["length_bytes"] = 10_000_000_000
+eye.decode_to_file(coord, "lattice_10gb.raw")
+
+# Then carve with third-party tools
+# Example: photorec lattice_10gb.raw
+# Example: foremost -i lattice_10gb.raw -o recovered/
+# Example: binwalk -e lattice_10gb.raw
+
+Speed Control (forward only)
+----------------------------
+coord = eye.encode(data, skip_lines=5)   # ~5Ã— faster encode
+# skip_lines=1 (default) = normal speed & maximum backward reliability
+# Higher values = faster forward, but test decode afterward
+
+Important Notes
+---------------
+- Backward decode (decode/decode_stream) is always step-by-step â€” no skipping
+- Forward encode can be accelerated with skip_lines (safety fallback prevents overshoot)
+- Use original_hash to verify recovered data
+- Handles any file type (bytes) â€” images, videos, text, executables, etc.
+- Streaming support allows 10 GB+ sections without RAM issues
+
+Future
+------
+- True skip_lines support in backward decode (needs more anchors)
+- Hierarchical / chunked large files
+- Integration with Odin Mail for temporal messaging
+
+Enjoy the lattice.
+The Odin Project is open.
