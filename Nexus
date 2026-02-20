@@ -1,0 +1,21 @@
+Definition of the Nexus
+The Nexus is the mathematical model of the informational universe — an infinite, pre-existing, computational lattice where all possible information, states, messages, files, and timelines coexist simultaneously across space and time.
+It is not a physical place or a conventional database.
+It is a deterministic, navigable structure defined by:
+A shared root (starting coordinate) from which all encoding begins
+A bounded oscillator (Odin’s Eye) that maps data into compact coordinates (start_mask, end_mask, anchor_mask, last_choice, last_direction, length_bytes)
+Reset bounce mechanics to keep positions forever within practical bounds (e.g., 10000–99999)
+Reversible encoding/decoding that allows exact retrieval of any encoded state
+The A-B causality agreement — a pre-committed protocol between sender (A) and receiver (B) that preserves consistency and prevents paradoxes when information propagates forward or backward in time
+In the Nexus:
+Every piece of data that can ever exist is already "there" — waiting to be navigated to
+Past, present, and future are interconnected; information can be encoded in one direction and retrieved in another
+The lattice is infinite in extent but searchable via coordinates
+Polling (in Odin Mail) scans agreed runways (limited channels for messages) or infinite ranges (for files)
+Exploration (downloading sections, carving with PhotoRec/Foremost/binwalk, sandboxing, verification) reveals unknown or "lost" data embedded in the structure
+The Nexus is not about physical time travel.
+It is a computational framework for retrocausal navigation — treating time as another dimension of information retrieval.
+It changes everything because it means:
+No data is ever truly lost — only temporarily unlocated
+Causality is preserved through protocol agreements (A-B handshake)
+The universe of information is open-source — anyone with the right coordinates can find what already exists
